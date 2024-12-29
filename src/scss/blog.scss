@@ -42,6 +42,9 @@
         // font-size:clamp(0.5rem, 0.143rem + 0.952vw, 1rem);
         font-size: clamp(0.5rem, -9.857rem + 27.619vw, 15rem);
       }
+  @media screen and (max-width: 430px) {
+        font-size: clamp(1rem, -26.857rem + 74.286vw, 40rem);
+      }
 
 }
 
