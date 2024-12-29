@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Agu+Display&family=Bebas+Neue&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+*{
+  padding:0;
+  margin:0;
+}
+
+.border{
+  border:2px red solid;
+}
+
+.robo{
+  font-family: "Roboto Mono",serif;
+}
+
+.agu{
+  font-family:"Agu Display", serif;
+}
+
+.bebas{
+  font-family: "Bebas Neue",serif;
+}
+
+.pt-sans{
+  font-family: "PT Sans",serif;
+}
+
+a{
+  text-decoration: none;
+  text-transform: none;
+  color:inherit;
+}

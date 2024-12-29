@@ -1,0 +1,438 @@
+.flip-card {
+  display: flex;
+  flex-flow: column nowrap;
+  position: absolute; /* Allow stacking for flipping */
+  height: auto; /* Let content dictate height */
+  margin: auto;
+  gap: clamp(1rem, -3.167rem + 11.111vw, 3.5rem);
+  padding-left: clamp(1rem, -1.5rem + 6.667vw, 2.5rem);
+  padding-right: clamp(1rem, -1.5rem + 6.667vw, 2.5rem);
+  background: lightgrey;
+  color: black;
+  justify-content: space-between;
+  align-items: center;
+  // margin-top: clamp(1rem, -0.667rem + 4.444vw, 2rem);
+  margin-bottom: clamp(1rem, -0.667rem + 4.444vw, 2rem);
+  padding-bottom: clamp(1rem, 0.167rem + 2.222vw, 1.5rem);
+  margin-left: clamp(5rem, 10vw, 10rem);
+  border-radius: 10px;
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 4px 4px rgb(255, 255, 255);
+  top:-10rem;
+  // left:0;
+  backface-visibility: hidden; /* Hide the back side when flipped */
+  
+  @media screen and (max-width:810px) {
+    position:absolute;
+    margin:0;
+    margin-bottom:13rem;
+    top:0;
+    left:-6rem;
+    // margin-bottom:3rem;
+    max-height: none; /* Remove restrictive height */
+  }
+}
+
+// .flip-card-front{
+  
+// }
+
+.flip-card-back {
+  /* Back side styles */
+  transform: rotateY(180deg); /* Make the back face initially hidden */
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden; /* Hide the back side when flipped */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.flip-card-inner.flip {
+  // padding-bottom:3rem;
+  backface-visibility: hidden;
+  transform: rotateY(180deg); /* Rotate to the back when flipped */
+}
+
+.page-2 {
+  display: flex;
+  flex-flow: row nowrap;
+  min-height: fit-content;
+  height: clamp(20rem, 45vw, 65vw);
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom:5rem;
+
+  @media screen and (max-width:810px) {
+    // height:fit-content;
+    // padding-top:2rem;
+    position:relative;
+    bottom:2rem;
+    padding-bottom:15rem;
+    gap:3rem;
+    flex-flow: column-reverse nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.card-switch{
+  display:flex;
+  flex-flow:column nowrap;
+  justify-content: center;
+  // margin-left:14rem;
+  // margin-top:2rem;
+  position:relative;
+  left:15rem;
+  top:4rem;
+  width:fit-content;
+
+  @media screen and (max-width:810px) {
+    position:relative;
+    left:0;
+    top:2rem;
+    z-index:1;
+    margin-left:0;
+    // // align-items: center;
+    // // left:34%;
+  }
+}
+
+.page-two{
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  max-height: fit-content; /* Allow container to grow as needed */
+  overflow: hidden; /* Hide any unintended overflow */
+  // align-items: center;
+  // height:fit-content;
+  // flex-grow: 1;
+  @media screen and (max-width:810px) {
+      // height:100vw;
+      // height:auto;
+      margin:0;
+      align-items: center;
+  }
+}
+
+.text {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  margin-right: clamp(5rem, 10vw, 10rem);
+
+  @media screen and (max-width:810px) {
+    margin:0;
+  }
+}
+
+// .slider{
+//   box-sizing: border-box;
+//   border-radius: 5px;
+//   border: 2px solid #323232;
+//   box-shadow: 4px 4px #323232;
+//   cursor: pointer;
+//   background-color: #fff;
+//   transition: 0.3s;
+// }
+
+// .slider:before{
+//   box-sizing: border-box;
+//     // position: absolute;
+//     content: "Switch";
+//     height: 1.3rem;
+//     width: 4rem;
+//     border: 2px solid #fff9f9;
+//     border-radius: 5px;
+//     // left: -2px;
+//     // bottom: 2px;
+//     background-color: #fff;
+//     box-shadow: 0 3px 0 #323232;
+//     transition: 0.3s;
+//     color:black;
+// }
+
+.flip-card-inner {
+  // width: 300px;
+  // height: 350px;
+  position: absolute;
+  background-color: transparent;
+  perspective: 1000px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Default shadow */
+    /* width: 100%;
+    height: 100%; */
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth flip */
+  transform: rotateY(0deg); 
+  // transform-origin: center;
+  backface-visibility: hidden;
+}
+
+.card-side{
+  // width: 100%;
+  // height: 100%;
+  perspective: 1000px; /* Set the perspective for 3D effect */
+}
+
+.toggle:checked ~ .flip-card-inner {
+  // box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  transform: rotateY(180deg) rotateX(5deg);
+}
+
+.toggle:checked ~ .flip-card-front {
+  box-shadow: none;
+}
+
+
+.flip-card-input::placeholder {
+  color: #666;
+  opacity: 0.8;
+}
+
+.flip-card-input:focus {
+  border: 2px solid #2d8cf0;
+}
+
+.flip-card-btn:active {
+  box-shadow: 0px 0px #323232;
+  transform: translate(3px, 3px);
+}
+
+.toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle:checked + .slider {
+  background-color: #2d8cf0;
+}
+
+.toggle:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+.toggle:checked ~ .card-side:before {
+  text-decoration: none;
+}
+
+.toggle:checked ~ .card-side:after {
+  text-decoration: underline;
+}
+
+.heading {
+  font-size: clamp(2rem, -7.333rem + 22.222vw, 6rem);
+  font-weight: 700;
+}
+
+.title {
+  padding-top: clamp(2rem, 3vw, 3rem);
+  font-weight: 700;
+  font-size: clamp(1rem, 0.286rem + 1.905vw, 2rem);
+}
+
+.sub {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.05em;
+  font-size:clamp(0.7rem, -1.433rem + 4.889vw, 1.5rem);
+}
+
+.flip-card-form {
+  padding-bottom: clamp(2rem, 3vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 1.5vw, 2rem);
+}
+
+.flip-card-input {
+  width: clamp(10rem, 20vw, 15rem); /* Minimum 10rem, max 15rem */
+  height: clamp(2rem, 4vw, 3rem);   /* Minimum 2rem, max 3rem */
+  border-radius: 0.3125rem; /* 5px */
+  border: 0.125rem solid black; /* 2px */
+  background-color: rgb(255, 255, 255); 
+  font-weight: 600; 
+  box-shadow: 4px 4px #323232;
+  font-size: clamp(0.4rem, -0.029rem + 1.143vw, 1rem);
+  outline: none;
+  color: rgb(71, 66, 66);
+  padding-left: clamp(0.5rem, 1vw, 1rem);
+}
+
+.flip-card-input::placeholder {
+  color: #666;
+  opacity: 0.8;
+}
+
+.flip-card-input:focus {
+  border: 2px solid #2d8cf0;
+}
+
+.flip-card-btn {
+  width: clamp(5rem, 10vw, 7.5rem); /* Minimum 5rem, max 7.5rem */
+  height: clamp(1.5rem, 3vw, 2.5rem); /* Minimum 1.5rem, max 2.5rem */
+  border-radius: 5px;
+  font-weight: 600;
+  color: #323232;
+  cursor: pointer;
+  font-size: clamp(0.4rem, -0.029rem + 1.143vw, 1rem);
+  border: 2px solid #323232;
+  background-color: #fff;
+  box-shadow: 4px 4px #323232;
+  margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+
+
+/* From Uiverse.io by bandirevanth */ 
+/* Switch starts here */
+.rocker {
+  display: inline-block;
+  position: relative;
+  /*
+  SIZE OF SWITCH
+  ==============
+  All sizes are in em - therefore
+  changing the font-size here
+  will change the size of the switch.
+  See .rocker-small below as example.
+  */
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #888;
+  width: 11.9em;
+  height: 3.63em;
+  overflow: overflow;
+  border-bottom: 0.5em solid #eee;
+}
+
+.rocker-small {
+  font-size: 0.75em;
+ /* Sizes the switch */
+  // margin: 1em;
+}
+
+.rocker::before {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #999;
+  border: 0.5em solid #eee;
+  border-bottom: 0;
+}
+
+.rocker input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-left,
+.switch-right {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5em;
+  width: 6em;
+  transition: 0.2s;
+  user-select: none;
+}
+
+.switch-left {
+  height: 2.6em;
+  width: 5em;
+  left: 0.85em;
+  bottom: 0.4em;
+  background-color: #ddd;
+  transform: rotate(15deg) skewX(15deg);
+}
+
+.switch-right {
+  right: 0.5em;
+  bottom: 0;
+  background-color: #bd5757;
+  color: #fff;
+}
+
+.switch-left::before,
+.switch-right::before {
+  content: "";
+  position: absolute;
+  width: 0.4em;
+  height: 2.45em;
+  bottom: -0.45em;
+  background-color: #ccc;
+  transform: skewY(-65deg);
+}
+
+.switch-left::before {
+  left: -0.4em;
+}
+
+.switch-right::before {
+  right: -0.375em;
+  background-color: transparent;
+  transform: skewY(65deg);
+}
+
+input:checked + .switch-left {
+  background-color: #0084d0;
+  color: #fff;
+  bottom: 0px;
+  left: 0.5em;
+  height: 2.5em;
+  width: 6em;
+  transform: rotate(0deg) skewX(0deg);
+}
+
+input:checked + .switch-left::before {
+  background-color: transparent;
+  width: 3.0833em;
+}
+
+input:checked + .switch-left + .switch-right {
+  background-color: #ddd;
+  color: #888;
+  bottom: 0.5em;
+  right: 0.8em;
+  height: 2.7em;
+  width: 5em;
+  transform: rotate(-15deg) skewX(-15deg);
+}
+
+input:checked + .switch-left + .switch-right::before {
+  background-color: #ccc;
+}
+
+/* Keyboard Users */
+input:focus + .switch-left {
+  color: #333;
+}
+
+input:checked:focus + .switch-left {
+  color: #fff;
+}
+
+input:focus + .switch-left + .switch-right {
+  color: #fff;
+}
+
+input:checked:focus + .switch-left + .switch-right {
+  color: #333;
+}

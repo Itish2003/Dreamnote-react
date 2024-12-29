@@ -1,0 +1,31 @@
+.dashnav{
+    // margin-top:5rem;
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: center;
+    // margin-left:2rem;
+    // margin-right:2rem;
+    align-items: center;
+    height:5rem;
+    // width:100%;
+    border:2px solid white;
+    // border-radius: 10px;
+    background-color:black; //#2f0052
+    padding:1rem;
+}
+
+.site-name{
+    // margin-left:2rem;
+    font-weight: 700;
+    font-size:clamp(1rem, -2.571rem + 9.524vw, 6rem);
+    letter-spacing: 2px; 
+    @media screen and (max-width: 430px) {
+        // font-size:clamp(0.5rem, 0.143rem + 0.952vw, 1rem);
+        font-size:3rem;
+      }
+
+      @media screen and (width: 810px) {
+        // font-size:clamp(0.5rem, 0.143rem + 0.952vw, 1rem);
+        font-size:4.5rem;
+      }
+}

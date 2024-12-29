@@ -1,0 +1,22 @@
+.nav-bar{
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: space-between;
+    padding-left:2rem;
+    padding-right:2rem;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    align-items: center;
+    height:20%;
+}
+
+.name{
+    font-family: "Bookish",serif;
+    font-weight: 700;
+    font-size:clamp(1rem, -0.786rem + 4.762vw, 3.5rem);
+}
+
+.github{
+    height:5vw;
+    width:fit-content;
+}
