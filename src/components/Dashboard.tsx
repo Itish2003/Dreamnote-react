@@ -61,7 +61,7 @@ const Dashboard: React.FC = () => {
     imageFormData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:8080/v1/uploadImage", {
+      const response = await fetch(`https://dreamnote-go.onrender.com/v1/uploadImage`, {
         method: "POST",
         body: imageFormData,
       });
