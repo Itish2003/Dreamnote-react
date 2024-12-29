@@ -125,7 +125,7 @@ const Dashboard: React.FC = () => {
     setMessage(null); // Clear any previous messages
 
     try {
-      const response = await fetch(`https://dreamnote-go.onrender.com/v1/uploadImage`, {
+      const response = await fetch(`https://dreamnote-go.onrender.com/v1/update`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
