@@ -37,12 +37,11 @@
   
 // }
 
-.flip-card-back {
-  /* Back side styles */
-  // position:relative;
-  // z-index:1;
-  transform: rotateY(180deg); /* Make the back face initially hidden */
-}
+// .flip-card-back {
+//   /* Back side styles */
+//   transform: rotateY(180deg); /* Make the back face initially hidden */
+// }
+
 
 .flip-card-front,
 .flip-card-back {
@@ -52,13 +51,51 @@
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1; /* Default lower z-index */
+}
+
+.flip-card-back {
+  transform: rotateY(180deg); /* Make the back face initially hidden */
+  z-index: 2; /* Higher z-index when flipped */
+  pointer-events: none; /* Disable clicks when not visible */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth flip */
 }
 
 .flip-card-inner.flip {
-  // padding-bottom:3rem;
-  backface-visibility: hidden;
   transform: rotateY(180deg); /* Rotate to the back when flipped */
 }
+
+.flip-card-front {
+  pointer-events: auto; /* Enable clicks */
+}
+
+.flip-card-back {
+  pointer-events: auto; /* Enable clicks only when flipped */
+}
+
+// .flip-card-front,
+// .flip-card-back {
+//   backface-visibility: hidden; /* Hide the back side when flipped */
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .flip-card-inner.flip {
+//   // padding-bottom:3rem;
+
+//   backface-visibility: hidden;
+//   transform: rotateY(180deg); /* Rotate to the back when flipped */
+// }
 
 .page-2 {
   display: flex;
@@ -160,22 +197,24 @@
 //     color:black;
 // }
 
-.flip-card-inner {
-  // width: 300px;
-  // height: 350px;
-  position: absolute;
-  background-color: transparent;
-  perspective: 1000px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Default shadow */
-    /* width: 100%;
-    height: 100%; */
-  text-align: center;
-  transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth flip */
-  transform: rotateY(0deg); 
-  // transform-origin: center;
-  backface-visibility: hidden;
-}
+// .flip-card-inner {
+//   // width: 300px;
+//   // height: 350px;
+//   position: absolute;
+//   background-color: transparent;
+//   perspective: 1000px;
+//   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Default shadow */
+//     /* width: 100%;
+//     height: 100%; */
+//   text-align: center;
+//   transform-style: preserve-3d;
+//   transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth flip */
+//   transform: rotateY(0deg); 
+//   // transform-origin: center;
+//   backface-visibility: hidden;
+// }
+
+
 
 .card-side{
   // width: 100%;
@@ -254,8 +293,6 @@
   flex-direction: column;
   align-items: center;
   gap: clamp(1rem, 1.5vw, 2rem);
-  // position: relative;
-  // z-index: 2;
 }
 
 .flip-card-input {
