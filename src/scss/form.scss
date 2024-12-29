@@ -39,6 +39,8 @@
 
 .flip-card-back {
   /* Back side styles */
+  position:relative;
+  z-index:1;
   transform: rotateY(180deg); /* Make the back face initially hidden */
 }
 
@@ -252,6 +254,8 @@
   flex-direction: column;
   align-items: center;
   gap: clamp(1rem, 1.5vw, 2rem);
+  position: relative;
+  z-index: 2;
 }
 
 .flip-card-input {
